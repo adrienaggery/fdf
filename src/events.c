@@ -6,16 +6,25 @@
 /*   By: aaggery <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/28 17:53:50 by aaggery           #+#    #+#             */
-/*   Updated: 2014/12/28 23:39:08 by aaggery          ###   ########.fr       */
+/*   Updated: 2014/12/29 21:54:46 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+static void		ft_reset_map(t_fdf *fdf)
+{
+	fdf->map.scale = 32;
+	fdf->map.depth = 0.1;
+	fdf->map.alpha = 30;
+	fdf->map.beta = 30;
+	fdf->map.offset.x = WIN_WIDTH / 2;
+	fdf->map.offset.y = WIN_HEIGHT / 4;
+}
+
 int		keyboard_event(int keycode, t_fdf *fdf)
 {
-	(void)fdf;
-	printf("key pressed: %d\n", keycode);
+	printf("Key pressed: %d\n", keycode);
 	if (keycode == KEYCODE_ESC)
 		exit(EXIT_SUCCESS);
 	else if (keycode == KEYCODE_ZOOMIN)
@@ -34,6 +43,30 @@ int		keyboard_event(int keycode, t_fdf *fdf)
 		fdf->map.offset.y -= MOVESTEP;
 	else if (keycode == KEYCODE_MOVELEFT)
 		fdf->map.offset.x += MOVESTEP;
+	else if (keycode == KEYCODE_RESET)
+		ft_reset_map(fdf);
+	draw_map(fdf);
+	return (0);
+}
+
+int		mouse_event(int button, int x, int y, t_fdf *fdf)
+{
+	printf("Button pressed: %d\n", button);
+	if (button == KEYCODE_ROTLEFT)
+	{
+		fdf->map.alpha += ROTSTEP;
+		fdf->map.beta -= ROTSTEP;
+	}
+	else if (button == KEYCODE_ROTRIGHT)
+	{
+		fdf->map.alpha -= ROTSTEP;
+		fdf->map.beta += ROTSTEP;
+	}
+	else if (button == KEYCODE_CLICK)
+	{
+		fdf->map.offset.x = x;
+		fdf->map.offset.y = y;
+	}
 	draw_map(fdf);
 	return (0);
 }

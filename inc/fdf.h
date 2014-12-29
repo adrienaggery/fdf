@@ -6,7 +6,7 @@
 /*   By: aaggery <aaggery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 10:05:39 by aaggery           #+#    #+#             */
-/*   Updated: 2014/12/29 14:18:35 by aaggery          ###   ########.fr       */
+/*   Updated: 2014/12/29 21:53:14 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@
 
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
-# define ALPHA 32
-# define BETA 32
 # define RAD(x) (x * M_PI / 180)
 # define DEG(x) (x * 180 / M_PI)
 
@@ -37,10 +35,15 @@
 # define KEYCODE_MOVERIGHT 124
 # define KEYCODE_MOVEDOWN 125
 # define KEYCODE_MOVELEFT 123
+# define KEYCODE_ROTRIGHT 4
+# define KEYCODE_ROTLEFT 5
+# define KEYCODE_CLICK 1
+# define KEYCODE_RESET 49
 
 # define MOVESTEP 32
 # define ZOOMSTEP 4
 # define DEPTHSTEP 0.1
+# define ROTSTEP 8
 
 typedef struct	s_point2d
 {
@@ -51,6 +54,8 @@ typedef struct	s_point2d
 typedef struct	s_map
 {
 	int			***map;
+	int			alpha;
+	int			beta;
 	t_point2d	offset;
 	int			scale;
 	float		depth;
@@ -98,6 +103,7 @@ int				draw_map(t_fdf *fdf);
 */
 
 int				keyboard_event(int keycode, t_fdf *fdf);
+int				mouse_event(int button, int x, int y, t_fdf *fdf);
 
 /*
  * Prototypes from "tools.c"

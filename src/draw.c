@@ -6,7 +6,7 @@
 /*   By: aaggery <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/28 17:31:24 by aaggery           #+#    #+#             */
-/*   Updated: 2014/12/29 00:00:21 by aaggery          ###   ########.fr       */
+/*   Updated: 2014/12/29 20:38:13 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ static t_point2d		ft_get_iso_point(t_fdf *fdf, int x, int y, int z)
 {
 	t_point2d		pt;
 
-	pt.x = fdf->map.scale * (x * cos(RAD(ALPHA)) - y * cos(RAD(BETA)));
+	pt.x = fdf->map.scale * (x * cos(RAD(fdf->map.alpha)) - y * cos(RAD(fdf->map.beta)));
 	pt.y = -(fdf->map.scale) * ((z * fdf->map.depth) - x * 
-			sin(RAD(ALPHA)) - y * sin(RAD(BETA)));
+			sin(RAD(fdf->map.alpha)) - y * sin(RAD(fdf->map.beta)));
 	pt.x += fdf->map.offset.x;
 	pt.y += fdf->map.offset.y;
 	return (pt);

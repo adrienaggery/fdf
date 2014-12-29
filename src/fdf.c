@@ -6,7 +6,7 @@
 /*   By: aaggery <aaggery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 10:13:33 by aaggery           #+#    #+#             */
-/*   Updated: 2014/12/28 23:47:01 by aaggery          ###   ########.fr       */
+/*   Updated: 2014/12/29 21:55:03 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,10 @@ static void		dump_map(int ***map)
 static void		ft_init(t_fdf *fdf, char *file)
 {
 	fdf->map.map = ft_load_map(file);
+	fdf->map.alpha = 32;
+	fdf->map.beta = 32;
 	fdf->map.offset.x = WIN_WIDTH / 2;
-	fdf->map.offset.y = WIN_HEIGHT / 2;
+	fdf->map.offset.y = WIN_HEIGHT / 4;
 	fdf->map.scale = 32;
 	fdf->map.depth = 0.1;
 	fdf->mlx = mlx_init();
@@ -83,6 +85,7 @@ int				main(int argc, char **argv)
 	dump_map(fdf.map.map);
 	mlx_expose_hook(fdf.win, draw_map, &fdf);
 	mlx_key_hook(fdf.win, keyboard_event, &fdf);
+	mlx_mouse_hook(fdf.win, mouse_event, &fdf);
 	mlx_loop(fdf.mlx);
 	return (0);
 }
