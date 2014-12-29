@@ -6,7 +6,7 @@
 /*   By: aaggery <aaggery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 10:13:33 by aaggery           #+#    #+#             */
-/*   Updated: 2014/12/29 21:55:03 by aaggery          ###   ########.fr       */
+/*   Updated: 2014/12/29 22:14:03 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void		ft_init(t_fdf *fdf, char *file)
 	fdf->map.alpha = 32;
 	fdf->map.beta = 32;
 	fdf->map.offset.x = WIN_WIDTH / 2;
-	fdf->map.offset.y = WIN_HEIGHT / 4;
+	fdf->map.offset.y = WIN_HEIGHT / 8;
 	fdf->map.scale = 32;
 	fdf->map.depth = 0.1;
 	fdf->mlx = mlx_init();

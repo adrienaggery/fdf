@@ -6,7 +6,7 @@
 /*   By: aaggery <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/28 17:53:50 by aaggery           #+#    #+#             */
-/*   Updated: 2014/12/29 21:54:46 by aaggery          ###   ########.fr       */
+/*   Updated: 2014/12/29 22:14:46 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void		ft_reset_map(t_fdf *fdf)
 	fdf->map.alpha = 30;
 	fdf->map.beta = 30;
 	fdf->map.offset.x = WIN_WIDTH / 2;
-	fdf->map.offset.y = WIN_HEIGHT / 4;
+	fdf->map.offset.y = WIN_HEIGHT / 8;
 }
 
 int		keyboard_event(int keycode, t_fdf *fdf)
