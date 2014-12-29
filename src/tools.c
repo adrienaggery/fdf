@@ -6,7 +6,7 @@
 /*   By: aaggery <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 13:51:17 by aaggery           #+#    #+#             */
-/*   Updated: 2014/12/28 23:41:31 by aaggery          ###   ########.fr       */
+/*   Updated: 2014/12/29 23:48:52 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,9 @@ void	ft_draw_line(t_fdf *fdf, t_point2d start, t_point2d end, int color)
 		if (start.x == end.x && start.y == end.y)
 			break ;
 		ee = e;
-		if (ee > -delta.x)
-		{
+		if (ee > -delta.x && ((start.x += inc.x) || 1))
 			e -= delta.y;
-			start.x += inc.x;
-		}
-		if (ee < delta.y)
-		{
+		if (ee < delta.y && ((start.y += inc.y) || 1))
 			e += delta.x;
-			start.y += inc.y;
-		}
 	}
 }
