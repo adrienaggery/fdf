@@ -6,7 +6,7 @@
 #    By: aaggery <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/27 14:19:12 by aaggery           #+#    #+#              #
-#    Updated: 2014/12/29 16:04:31 by aaggery          ###   ########.fr        #
+#    Updated: 2014/12/30 00:37:02 by aaggery          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,10 @@ clean:
 	@(cd ./libft && $(MAKE) clean)
 	@(cd ./mlx && $(MAKE) clean)
 
-fclean: clean
+fclean:
+	@(cd ./libft && $(MAKE) fclean)
+	@(cd ./mlx && $(MAKE) clean)
+	rm -rf $(OBJECTS)
 	rm -rf $(NAME)
 	rm -rf ./lib/libft.a
 	rm -rf ./lib/libmlx.a

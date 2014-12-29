@@ -6,7 +6,7 @@
 /*   By: aaggery <aaggery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 10:05:39 by aaggery           #+#    #+#             */
-/*   Updated: 2014/12/29 21:53:14 by aaggery          ###   ########.fr       */
+/*   Updated: 2014/12/30 00:20:36 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <math.h>
 # include "mlx.h"
 # include "libft.h"
-# include <stdio.h> // A virer!
 
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
@@ -81,36 +80,38 @@ typedef struct	s_fdf
 }				t_fdf;
 
 /*
- * Prototypes from "get_next_line.c"
+** Prototypes from "get_next_line.c"
 */
 
 int				get_next_line(int fd, char **line);
 
 /*
- * Prototypes from "map.c"
+** Prototypes from "map.c"
 */
 
 int				***ft_load_map(char *file);
 
 /*
- * Prototypes from "draw.c"
+** Prototypes from "draw.c"
 */
 
 int				draw_map(t_fdf *fdf);
 
 /*
- * Prototypes from "events.c"
+** Prototypes from "events.c"
 */
 
 int				keyboard_event(int keycode, t_fdf *fdf);
 int				mouse_event(int button, int x, int y, t_fdf *fdf);
 
 /*
- * Prototypes from "tools.c"
+** Prototypes from "tools.c"
 */
 
 void			ft_put_pixel_to_img(t_buffer *buffer, int x, int y, int color);
-int				ft_is_in_window(int bounds_width, int bounds_height, int x, int y);
-void			ft_draw_line(t_fdf *fdf, t_point2d start, t_point2d end, int color);
+int				ft_is_in_window(int bounds_width, int bounds_height,
+		int x, int y);
+void			ft_draw_line(t_fdf *fdf, t_point2d start,
+		t_point2d end, int color);
 
 #endif

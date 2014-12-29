@@ -6,33 +6,11 @@
 /*   By: aaggery <aaggery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 10:13:33 by aaggery           #+#    #+#             */
-/*   Updated: 2014/12/29 22:14:03 by aaggery          ###   ########.fr       */
+/*   Updated: 2014/12/30 00:25:33 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-static void		dump_map(int ***map)
-{
-	int		x;
-	int		y;
-
-	printf("--- Dumping map ---\n\n");
-	y = 0;
-	while (map[y])
-	{
-		x = 0;
-		while (map[y][x])
-		{
-			printf("%d ", map[y][x][0]);
-			x++;
-		}
-		printf("NULL - %d\n", x);
-		y++;
-	}
-	printf("NULL\n");
-	printf("\n--- End of dump ---\n\n");
-}
 
 static void		ft_init(t_fdf *fdf, char *file)
 {
@@ -82,7 +60,6 @@ int				main(int argc, char **argv)
 
 	ft_check_args(argc, argv);
 	ft_init(&fdf, argv[1]);
-	dump_map(fdf.map.map);
 	mlx_expose_hook(fdf.win, draw_map, &fdf);
 	mlx_key_hook(fdf.win, keyboard_event, &fdf);
 	mlx_mouse_hook(fdf.win, mouse_event, &fdf);

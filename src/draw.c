@@ -6,7 +6,7 @@
 /*   By: aaggery <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/28 17:31:24 by aaggery           #+#    #+#             */
-/*   Updated: 2014/12/29 22:27:32 by aaggery          ###   ########.fr       */
+/*   Updated: 2014/12/30 00:26:57 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ int						draw_map(t_fdf *fdf)
 {
 	ft_bzero(fdf->buffer.data, fdf->buffer.line_size * fdf->buffer.height);
 	ft_buff_image(fdf);
-	printf("Image buffed\n");
 	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->buffer.img, 0, 0);
 	return (0);
 }
