@@ -6,18 +6,19 @@
 /*   By: aaggery <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/28 17:31:24 by aaggery           #+#    #+#             */
-/*   Updated: 2014/12/29 20:38:13 by aaggery          ###   ########.fr       */
+/*   Updated: 2014/12/29 22:27:32 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "fdf.h"
+#include "fdf.h"
 
 static t_point2d		ft_get_iso_point(t_fdf *fdf, int x, int y, int z)
 {
 	t_point2d		pt;
 
-	pt.x = fdf->map.scale * (x * cos(RAD(fdf->map.alpha)) - y * cos(RAD(fdf->map.beta)));
-	pt.y = -(fdf->map.scale) * ((z * fdf->map.depth) - x * 
+	pt.x = fdf->map.scale * (x * cos(RAD(fdf->map.alpha)) - y *
+			cos(RAD(fdf->map.beta)));
+	pt.y = -(fdf->map.scale) * ((z * fdf->map.depth) - x *
 			sin(RAD(fdf->map.alpha)) - y * sin(RAD(fdf->map.beta)));
 	pt.x += fdf->map.offset.x;
 	pt.y += fdf->map.offset.y;
@@ -51,11 +52,13 @@ static void				ft_buff_image(t_fdf *fdf)
 		while (fdf->map.map[y][x])
 		{
 			if (fdf->map.map[y][x + 1])
-				ft_draw_line(fdf, ft_get_iso_point(fdf, x, y, fdf->map.map[y][x][0]),
-						ft_get_iso_point(fdf, x + 1, y, fdf->map.map[y][x + 1][0]), 0xFFFFFF);
+				ft_draw_line(fdf, ft_get_iso_point(fdf, x, y,
+							fdf->map.map[y][x][0]), ft_get_iso_point(fdf,
+								x + 1, y, fdf->map.map[y][x + 1][0]), 0xFFFFFF);
 			if (ft_have_upper_point(fdf->map.map, x, y))
-				ft_draw_line(fdf, ft_get_iso_point(fdf, x, y, fdf->map.map[y][x][0]),
-						ft_get_iso_point(fdf, x, y - 1, fdf->map.map[y - 1][x][0]), 0xFFFFFF);
+				ft_draw_line(fdf, ft_get_iso_point(fdf, x, y,
+							fdf->map.map[y][x][0]), ft_get_iso_point(fdf,
+								x, y - 1, fdf->map.map[y - 1][x][0]), 0xFFFFFF);
 			x++;
 		}
 		y++;
