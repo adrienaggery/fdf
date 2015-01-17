@@ -6,7 +6,7 @@
 /*   By: aaggery <aaggery@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 10:35:53 by aaggery           #+#    #+#             */
-/*   Updated: 2014/12/27 15:50:14 by aaggery          ###   ########.fr       */
+/*   Updated: 2015/01/17 17:52:29 by aaggery          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static int		ft_get_row_count(char *file)
 	int		fd;
 	char	*line;
 
+	i = 0;
 	fd = open(file, O_RDONLY);
 	while (get_next_line(fd, &line) == 1)
 	{
